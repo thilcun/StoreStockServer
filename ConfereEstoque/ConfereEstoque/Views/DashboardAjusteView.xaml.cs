@@ -1,6 +1,4 @@
-﻿using ConfereEstoque.Core;
-using ConfereEstoque.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ConfereEstoque
+namespace ConfereEstoque.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DashboardAjusteView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DashboardAjusteView : UserControl
     {
-        public MainWindow()
+        public DashboardAjusteView()
         {
             InitializeComponent();
-            main.DataContext = ObjectBase.Container.GetExportedValue<MainViewModel>();
         }
     }
 }

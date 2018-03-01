@@ -3,31 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:v="clr-namespace:ConfereEstoque.Views"
         xmlns:local="clr-namespace:ConfereEstoque"
         mc:Ignorable="d"
         Title="Concorde - Confere Estoque" Height="350" Width="525">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="40"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Button Content="Criar Ajuste" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
-            <Button Content="Carregar Ajuste" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="97"/>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <StackPanel HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="497" Margin="10,0,0,0"/>
-            </Grid>
-            <Grid Grid.Row="1">
-                <DataGrid Margin="10"/>
-
-            </Grid>
-        </Grid>
-
+        <v:MainView x:Name="main" Margin="10px"/>
     </Grid>
 </Window>
