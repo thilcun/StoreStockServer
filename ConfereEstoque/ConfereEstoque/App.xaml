@@ -2,8 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ConfereEstoque"
+             xmlns:v="clr-namespace:ConfereEstoque.Views"
+             xmlns:vm="clr-namespace:ConfereEstoque.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+            <v:DashboardView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:CriarAjusteViewModel}">
+            <v:CriarAjusteView/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:PesquisarAjusteViewModel}">
+            <v:PesquisarAjusteView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

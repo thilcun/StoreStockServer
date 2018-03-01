@@ -12,6 +12,6 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
         <Image Grid.Row="0"/>
-        <ContentControl Content="ContentControl" Grid.Row="1"/>
+        <ContentControl Content="{Binding ViewModelAtivo}" Grid.Row="1"/>
     </Grid>
 </UserControl>

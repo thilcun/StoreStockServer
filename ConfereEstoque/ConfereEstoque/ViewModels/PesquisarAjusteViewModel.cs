@@ -1,12 +1,16 @@
-﻿using System;
+﻿using ConfereEstoque.Core;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConfereEstoque.ViewModels
 {
-    class PesquisarAjusteViewModel
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
+    public class PesquisarAjusteViewModel : ViewModelBase
     {
     }
 }

@@ -1,20 +1,24 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConfereEstoque.Core
 {
-    public abstract class ObjectBase// : NotificationObject, IDirtyCapable, IExtensibleDataObject, IDataErrorInfo
+    public abstract class ObjectBase : NotificationObject, IDirtyCapable, IExtensibleDataObject, IDataErrorInfo
     {
 
         public static CompositionContainer Container { get; set; }
-        /*public ObjectBase()
+        public ObjectBase()
         {
             _Validator = GetValidator();
             Validate();
@@ -240,6 +244,6 @@ namespace ConfereEstoque.Core
         }
 
         #endregion
-        */
+        
     }
 }

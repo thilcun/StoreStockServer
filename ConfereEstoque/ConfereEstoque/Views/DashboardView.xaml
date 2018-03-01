@@ -7,6 +7,11 @@
              xmlns:core="clr-namespace:ConfereEstoque.Core"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <core:UserControlViewBase.Resources>
+        <Grid x:Key="AjusteNull">
+            <TextBlock Text="Escolher um Ajuste!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </core:UserControlViewBase.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="26*"/>
@@ -15,7 +20,7 @@
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Content="Criar Ajuste" HorizontalAlignment="Left" Width="77"/>
         <Button Grid.Row="0" Content="Carregar Ajuste" HorizontalAlignment="Left" Margin="82,0,0,0" Width="102"/>
-        <ContentControl Content="{Binding Ajuste}" Grid.Row="2"/>
+        <ContentControl Content="{Binding Ajuste, TargetNullValue={StaticResource AjusteNull}}" Grid.Row="2"/>
 
     </Grid>
 </core:UserControlViewBase>
