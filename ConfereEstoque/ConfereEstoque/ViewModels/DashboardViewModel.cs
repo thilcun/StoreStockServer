@@ -18,6 +18,11 @@ namespace ConfereEstoque.ViewModels
 
         }
 
-        
+        public override string ViewTitle
+        {
+            get { return "Dashboard"; }
+        }
+
+        public Ajuste Ajuste { get; set; }
     }
 }

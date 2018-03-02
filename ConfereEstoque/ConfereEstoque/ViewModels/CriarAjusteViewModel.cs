@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfereEstoque.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ConfereEstoque.ViewModels
 {
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class CriarAjusteViewModel
+    public class CriarAjusteViewModel : ViewModelBase
     {
     }
 }

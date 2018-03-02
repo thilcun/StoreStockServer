@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConfereEstoque.Core
 {
     [AttributeUsage(AttributeTargets.Property)]
-    class NotNavigableAttribute : Attribute
+    public class NotNavigableAttribute : Attribute
     {
     }
 }

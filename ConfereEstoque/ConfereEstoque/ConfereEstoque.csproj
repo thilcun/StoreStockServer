@@ -71,6 +71,10 @@
     <Compile Include="Core\ObjectBase.cs" />
     <Compile Include="Core\UserControlViewBase.cs" />
     <Compile Include="Core\ViewModelBase.cs" />
+    <Compile Include="Entities\Ajuste.cs" />
+    <Compile Include="Entities\ItemAjuste.cs" />
+    <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Produto.cs" />
     <Compile Include="Extensions\CoreExtensions.cs" />
     <Compile Include="Utils\PropertySupport.cs" />
     <Compile Include="ViewModels\CriarAjusteViewModel.cs" />
@@ -152,6 +156,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

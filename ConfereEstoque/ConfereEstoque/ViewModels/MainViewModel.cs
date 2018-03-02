@@ -12,9 +12,11 @@ namespace ConfereEstoque.ViewModels
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel()
+        [ImportingConstructor]
+        public MainViewModel(DashboardViewModel dashboardViewModel)
         {
-            ViewModelAtivo = DashboardViewModel;
+
+            ViewModelAtivo = dashboardViewModel;
         }
 
         public ViewModelBase ViewModelAtivo { get; private set; }
