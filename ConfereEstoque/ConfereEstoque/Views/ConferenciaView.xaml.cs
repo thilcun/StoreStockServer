@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace ConfereEstoque.Views
 {
     /// <summary>
-    /// Interaction logic for DashboardView.xaml
+    /// Interaction logic for ConferenciaView.xaml
     /// </summary>
-    public partial class DashboardView : UserControlViewBase
+    public partial class ConferenciaView : UserControlViewBase
     {
-        public DashboardView()
+        public ConferenciaView()
         {
             InitializeComponent();
         }

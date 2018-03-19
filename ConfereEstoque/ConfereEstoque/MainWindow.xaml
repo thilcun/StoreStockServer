@@ -6,7 +6,7 @@
         xmlns:v="clr-namespace:ConfereEstoque.Views"
         xmlns:local="clr-namespace:ConfereEstoque"
         mc:Ignorable="d"
-        Title="Concorde - Confere Estoque" Height="350" Width="525">
+        Title="Concorde - Confere Estoque" Height="350" Width="525" WindowState="Maximized">
     <Grid>
         <v:MainView x:Name="main" Margin="10px"/>
     </Grid>

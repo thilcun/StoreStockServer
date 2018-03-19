@@ -6,8 +6,8 @@
              xmlns:vm="clr-namespace:ConfereEstoque.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
-            <v:DashboardView/>
+        <DataTemplate DataType="{x:Type vm:ConferenciaViewModel}">
+            <v:ConferenciaView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vm:CriarAjusteViewModel}">
@@ -17,5 +17,6 @@
         <DataTemplate DataType="{x:Type vm:PesquisarAjusteViewModel}">
             <v:PesquisarAjusteView/>
         </DataTemplate>
+        
     </Application.Resources>
 </Application>

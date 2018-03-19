@@ -1,17 +1,26 @@
-﻿<UserControl x:Class="ConfereEstoque.Views.MainView"
+﻿<core:UserControlViewBase x:Class="ConfereEstoque.Views.MainView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ConfereEstoque.Views"
+             xmlns:core="clr-namespace:ConfereEstoque.Core"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <core:UserControlViewBase.Resources>
+        <Grid x:Key="AjusteNull">
+            <TextBlock Text="Escolher um Ajuste!" HorizontalAlignment="Center" FontSize="30pt" VerticalAlignment="Top"/>
+        </Grid>
+    </core:UserControlViewBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
         <Image Grid.Row="0"/>
-        <ContentControl Content="{Binding ViewModelAtivo}" Grid.Row="1"/>
+        <Button Grid.Row="0" Content="Criar Ajuste" Command="{Binding CriarAjusteCommand}" HorizontalAlignment="Left" Width="77"/>
+        <Button Grid.Row="0" Content="Pesquisar Ajuste" Command="{Binding PesquisarAjusteCommand}" HorizontalAlignment="Left" Margin="82,0,0,0" Width="102"/>
+        <ContentControl Content="{Binding ViewModelAtivo, TargetNullValue={StaticResource AjusteNull}, FallbackValue={StaticResource AjusteNull}}" Grid.Row="1"/>
+
     </Grid>
-</UserControl>
+</core:UserControlViewBase>

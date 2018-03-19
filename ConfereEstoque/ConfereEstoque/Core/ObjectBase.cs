@@ -13,10 +13,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ConfereEstoque.Extensions;
 using ConfereEstoque.Utils;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ConfereEstoque.Core
 {
-    public abstract class ObjectBase : NotificationObject, IDirtyCapable, IExtensibleDataObject, IDataErrorInfo
+    public abstract class ObjectBase : NotificationObject, IDirtyCapable, /*IExtensibleDataObject,*/ IDataErrorInfo
     {
 
         public static CompositionContainer Container { get; set; }
@@ -34,12 +35,12 @@ namespace ConfereEstoque.Core
 
         #region IExtensibleDataObject Members
 
-        public ExtensionDataObject ExtensionData { get; set; }
+        //public ExtensionDataObject ExtensionData { get; set; }
 
         #endregion
 
         #region IDirtyCapable members
-
+        [NotMapped]    
         [NotNavigable]
         public virtual bool IsDirty
         {
