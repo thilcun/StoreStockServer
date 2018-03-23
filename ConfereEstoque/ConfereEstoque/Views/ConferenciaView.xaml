@@ -113,7 +113,8 @@
         <TextBox Height="23" Margin="80,35,10,0" TextWrapping="Wrap" Text="{Binding Ajuste.Observacao}" VerticalAlignment="Top" IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="Data:" VerticalAlignment="Top" Width="65"/>
         <TextBox Height="23" Margin="80,63,119,0" TextWrapping="Wrap" Text="{Binding Ajuste.DataCriado}" IsReadOnly="True" VerticalAlignment="Top"/>
-        <DataGrid Margin="10,125,10,10" ItemsSource="{Binding Ajuste.Itens}" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserAddRows="False">
+        <DataGrid Margin="10,125,10,34" ItemsSource="{Binding Ajuste.Itens}" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserAddRows="False">
+
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ItemNumero}" ClipboardContentBinding="{x:Null}" Header="NR. ITEM"/>
                 <DataGridTextColumn Binding="{Binding Produto.CodigoProduto}" ClipboardContentBinding="{x:Null}" Header="COD. PRODUTO"/>
@@ -121,7 +122,23 @@
                 <DataGridTextColumn Binding="{Binding Produto.Marca.Codigo}" ClipboardContentBinding="{x:Null}" Header="COD. MARCA"/>
                 <DataGridTextColumn Binding="{Binding Produto.Marca.Descricao}" ClipboardContentBinding="{x:Null}" Header="MARCA" Width="2*"/>
                 <DataGridTextColumn Binding="{Binding Produto.CodigoBarra}" ClipboardContentBinding="{x:Null}" Header="COD. BARRA" Width="2*"/>
-                <DataGridTextColumn Binding="{Binding Quantidade}" ClipboardContentBinding="{x:Null}" Header="QTD CONFERIDA"/>
+                <DataGridTextColumn Binding="{Binding Quantidade}" ClipboardContentBinding="{x:Null}" Header="QTD CONFERIDA">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="FontSize" To="48" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Usuario}" ClipboardContentBinding="{x:Null}" Header="USUARIO"/>
                 <DataGridTextColumn Binding="{Binding Endereco}" ClipboardContentBinding="{x:Null}" Header="ENDERECO"/>
             </DataGrid.Columns>
@@ -129,6 +146,9 @@
         <CheckBox Style="{StaticResource OrangeSwitchStyle}" IsEnabled="{Binding CanStart}" Margin="205,92,0,0" IsChecked="{Binding ServerRunning, Mode=TwoWay}" VerticalAlignment="Top" Height="28" HorizontalAlignment="Left" Width="94"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="Servidor:" VerticalAlignment="Top" Width="65"/>
         <ComboBox HorizontalAlignment="Left" Margin="80,92,0,0" ItemsSource="{Binding IpLista}" SelectedItem="{Binding IpServidor, Mode=TwoWay}" VerticalAlignment="Top" Width="120" Height="28"/>
+        <Button Content="Gerar Arquivo" Command="{Binding GerarArquivoCommand}" HorizontalAlignment="Right" Margin="0,0,10,7" Width="100" Height="22" VerticalAlignment="Bottom"/>
+        <TextBox Margin="10,0,195,7" TextWrapping="Wrap" Text="{Binding SelectedFolder}" Height="23" VerticalAlignment="Bottom"/>
+        <Button Content="Pasta" Command="{Binding SelecionarPastaCommand}" HorizontalAlignment="Right" Margin="0,0,115,7" Width="75" Height="22" VerticalAlignment="Bottom"/>
 
     </Grid>
 </core:UserControlViewBase>

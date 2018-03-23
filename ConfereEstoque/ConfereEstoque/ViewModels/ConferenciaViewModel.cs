@@ -25,7 +25,28 @@ namespace ConfereEstoque.ViewModels
             if(IpLista.Count > 0)
                 IpServidor = _ipLista[0];
             this.PropertyChanged += ConferenciaViewModel_PropertyChanged;
+
+            GerarArquivoCommand = new DelegateCommand<object>(GerarArquivoCommandExecute, GerarArquivoCommandCanExecute);
+            SelecionarPastaCommand = new DelegateCommand<object>(SelecionarPastaCommandExecute);
+            
             Messenger.Default.Register<ItemAjuste>("ItemRecebido", itemRecebido);
+        }
+
+        private void GerarArquivoCommandExecute(object obj)
+        {
+            //Create File
+            _FileServices.GenerateFile(SelectedFolder, Ajuste);
+        }
+
+        private bool GerarArquivoCommandCanExecute(object obj)
+        {
+            bool result = (SelectedFolder != "" && SelectedFolder != null);
+            return result;
+        }
+
+        private void SelecionarPastaCommandExecute(object obj)
+        {
+            SelectedFolder = _SelectFolderService.GetFolderSelected(); 
         }
 
         private void ConferenciaViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -45,7 +66,10 @@ namespace ConfereEstoque.ViewModels
                 }
             }
         }
-
+        [Import]
+        FileServices _FileServices;
+        [Import]
+        SelectFolderService _SelectFolderService;
         [Import]
         IDataRepositoryFactory _DataRepositoryFactory;
 
@@ -84,6 +108,23 @@ namespace ConfereEstoque.ViewModels
             }
         }
 
+        private string _SelectedFolder;
+        public string SelectedFolder
+        {
+            get
+            {
+                return _SelectedFolder;
+            }
+            set
+            {
+                _SelectedFolder = value;
+                OnPropertyChanged(() => SelectedFolder);
+            }
+        }
+
+        public DelegateCommand<object> SelecionarPastaCommand { get; private set; }
+
+        public DelegateCommand<object> GerarArquivoCommand { get; private set; }
 
         private ObservableCollection<string> _ipLista;
         public ObservableCollection<string> IpLista
