@@ -53,7 +53,7 @@ namespace ConfereEstoque.Controllers
                 }
                 Messenger.Default.Send(returnitem);
 
-                return Ok();
+                return Ok(returnitem);
             });
             
         }

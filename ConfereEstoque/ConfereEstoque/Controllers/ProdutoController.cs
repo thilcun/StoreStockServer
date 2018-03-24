@@ -20,8 +20,8 @@ namespace ConfereEstoque.Controllers
         
         public ProdutoController()
         {
-            //PostgresServices = new PostgresServices("192.168.0.6", 5436);
-            PostgresServices = new DummyPostgresServices();
+            PostgresServices = new PostgresServices("192.168.0.6", 5432);
+            //PostgresServices = new DummyPostgresServices();
         }
         public IPostgresServices PostgresServices { get; set; }
         [HttpGet]
@@ -48,7 +48,7 @@ namespace ConfereEstoque.Controllers
                         itens.Add(new ItemProduto { Produto = p, AjusteId = AjusteContext.Ajuste.Codigo, Quantidade = 0 });
                     }
                 }
-                return Content(System.Net.HttpStatusCode.Accepted, itens);
+                return Ok(itens);
             });
             
         }

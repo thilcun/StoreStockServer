@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace ConfereEstoque.Data
 {
-    [Export(typeof(IPostgresServices))]
-    [PartCreationPolicy(CreationPolicy.NonShared)]
+    //[Export(typeof(IPostgresServices))]
+    //[PartCreationPolicy(CreationPolicy.NonShared)]
     public class DummyPostgresServices : IPostgresServices
     {
         public List<Produto> GetProdutosPorEan(string query)
@@ -18,8 +18,8 @@ namespace ConfereEstoque.Data
             return new List<Produto>
             {
                 new Produto{
-                    CodigoProduto = Convert.ToInt32(query),
-                    CodigoBarra = "1234567890987",
+                    CodigoProduto = Convert.ToInt32(query.Substring(0, 6)),
+                    CodigoBarra = query,
                     Descricao = "Produto Test",
                     Marca = new Marca{ Codigo = 1234, Descricao = "Marca Test"},
                     Ncm = "21341234",
